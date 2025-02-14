@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: Install dependencies
+        run: |
+          uv sync
+
+      - name: Check formatting with Ruff
+        run: uv run ruff format --check .
+
+      - name: Lint with Ruff
+        run: uv run ruff check .
+
+      - name: Type check with pyright
+        run: uv run pyright
+
+      - name: Run tests with pytest
+        run: uv run pytest -v --cov=src --cov-report=term-missing
+
+      - name: Check for large files
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: check-added-large-files --all-files
+
+      - name: Check for merge conflicts
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: check-merge-conflict --all-files
+
+      - name: Check for private keys
+        uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: detect-private-key --all-files
