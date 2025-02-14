@@ -37,7 +37,7 @@ A modern, high-performance Django template using django-ninja for building REST 
 
 ## Project Structure
 
-```
+```text
 ├── src/
 │   └── backend/             # Main Django project directory
 │       ├── api/             # API application
@@ -60,22 +60,26 @@ A modern, high-performance Django template using django-ninja for building REST 
 
 ## Development Setup
 
-1. Install dependencies:
+### Install dependencies
+
 ```bash
 just install
 ```
 
-2. Set up pre-commit hooks (recommended):
+### Set up pre-commit hooks (recommended)
+
 ```bash
 just pre-commit
 ```
 
-3. Run migrations:
+### Run migrations
+
 ```bash
 just migrate
 ```
 
-4. Start development server:
+### Start development server
+
 ```bash
 just serve
 ```
