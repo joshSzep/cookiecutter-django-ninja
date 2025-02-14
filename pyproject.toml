@@ -12,6 +12,7 @@ dependencies = [
     "uvicorn>=0.34.0",
     "channels>=4.2.0",
     "websockets>=14.2",
+    "python-dotenv>=1.0.1",
 ]
 
 [build-system]
