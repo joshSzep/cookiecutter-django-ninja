@@ -28,6 +28,13 @@ repos:
         types: [python]
         pass_filenames: false
 
+      - id: pyright
+        name: Run type checking with pyright
+        entry: just typecheck
+        language: system
+        types: [python]
+        pass_filenames: false
+
       - id: pytest
         name: Run tests with pytest
         entry: just test
