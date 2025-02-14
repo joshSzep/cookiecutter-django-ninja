@@ -28,6 +28,7 @@ lint:
 
 # Run the pre-commit checks
 pre-commit:
+    uv run pre-commit install
     uv run pre-commit run --all
 
 # Create and run migrations
