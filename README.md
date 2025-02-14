@@ -6,6 +6,10 @@ A modern, high-performance Django template using django-ninja for building REST 
 
 - Built with Python 3.13+ and Django 5.1+
 - High-performance REST API using django-ninja 1.3+
+- Real-time WebSocket support:
+  - Built-in WebSocket example with time broadcasting
+  - Async WebSocket consumers using channels
+  - Clean WebSocket routing configuration
 - Modern async support with uvicorn and gunicorn
 - Modern dependency management:
   - `uv` for fast, reliable Python package management
@@ -37,19 +41,21 @@ A modern, high-performance Django template using django-ninja for building REST 
 ├── src/
 │   └── backend/             # Main Django project directory
 │       ├── api/             # API application
-│       │   └── api.py       # Main API router
+│       │   ├── api.py       # Main API router
+│       │   ├── consumers.py # WebSocket consumers
+│       │   └── routing.py   # WebSocket routing
 │       └── project/         # Project configuration
 │           ├── settings.py
 │           ├── urls.py
 │           └── asgi.py
 ├── test/                    # Test directory
-│   ├── conftest.py          # Test configuration
-│   └── api/                 # API tests
-├── pyproject.toml           # Project dependencies and tools configuration
-├── uv.lock                  # Locked dependencies
-├── justfile                 # Development commands
-├── gunicorn.conf.py         # Gunicorn server configuration
-└── .pre-commit-config.yaml  # Pre-commit hooks configuration
+│   ├── conftest.py         # Test configuration
+│   └── api/                # API tests
+├── pyproject.toml          # Project dependencies and tools configuration
+├── uv.lock                 # Locked dependencies
+├── justfile                # Development commands
+├── gunicorn.conf.py        # Gunicorn server configuration
+└── .pre-commit-config.yaml # Pre-commit hooks configuration
 ```
 
 ## Development Setup
@@ -86,6 +92,18 @@ The project uses `just` for common development tasks:
 - `just check` - Run all checks (types, lint, format)
 - `just migrate` - Run database migrations
 - `just pre-commit` - Install pre-commit hooks
+
+## Example Endpoints
+
+### REST API
+
+- `/api/health` - Health check endpoint
+- `/api/docs` - Interactive API documentation (Swagger UI)
+
+### WebSocket
+
+- `/ws/time/` - WebSocket endpoint that broadcasts current time every second
+- `/api/websocket-test` - Test page for WebSocket time broadcast
 
 ## Code Quality
 
