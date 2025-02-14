@@ -1,0 +1,72 @@
+# Windsurf Workspace Rules
+
+## Coding Style For Python
+
+- never use relative imports
+- never use `from module import *` aka "wildcard imports"
+- never remove imports that are used
+- never put more than one import symbol on a single line, instead put each import on a separate line. This reflects the behavior of `isort` "force-single-line = true"
+- always put each import symbol on a separate line
+- always group imports by type (std, third party, local)
+- always alphabetize imports within each import group, with any capital letter considered as coming before any lowercased letter
+- always use 4 spaces for a tab
+- never use `Union` (use `|` instead)
+- never use `Optional` (use `TYPE | None` instead)
+- never use `List` (use `list` instead)
+- never use `Dict` (use `dict` instead)
+- never use `Set` (use `set` instead)
+- always keep lines under 88 characters
+- always use trailing commas in lists
+- always use trailing commas in dicts
+- always use trailing commas in sets
+- always use trailing commas in tuples
+- always use trailing commas in function definitions
+- always use trailing commas in class definitions
+- always use trailing commas in arguments, unless the argument is a single item
+- always use trailing commas in type annotations
+- always use trailing commas in method definitions
+- always use `pass` instead of `...`
+- always avoid unnecessary blank lines wherever possible
+- never have blank lines in lists
+- never have blank lines in dictionaries
+- never have blank lines in sets
+- never have blank lines in tuples
+- never have blank lines in function definitions
+- never have blank lines in arguments
+- never have blank lines in type annotations
+- never have blank lines in return types
+- always use double quotes for strings unless the string contains a single quote
+- always use f-string interpolation unless the string is a constant
+- always prefer `list` comprehensions over calls to `map`
+- always prefer `dict` comprehensions over calls to `map`
+- always prefer `set` comprehensions over calls to `map` and `filter`
+- always prefer generator expressions over calls to `map` and `filter`
+- where possible, always use `match` statements over `if`/`elif`/`else` chains
+- never delete my comments unless they are incorrect
+- use comments to explain why, not what and never to describe the obvious
+- prefer to use keyword arguments over positional arguments
+- prefer to use more detailed type annotations over `Any`, but only if the type is not ambiguous
+- never remove casts that are used to specify the type of a variable to help pyright
+
+## GitHub Operations Rule
+
+When the USER says "get this up to github":
+
+1. Run `git add .` to stage all changes
+2. Run `git diff HEAD` to review changes
+3. Run `git status` to check current branch
+4. If on main branch, create new feature branch with format: `type/description-of-changes` by running `git checkout -b type/description-of-changes`
+5. Commit changes by running `git commit -m "message"` with a comprehensive message starting with "type: description-of-changes" and a detailed description in markdown format with all backticks escaped
+6. Push changes by running `git push origin current-branch-name`
+7. Create PR by running `gh pr create --assignee @me --title "type: description-of-changes" --body "Detailed change 1\nDetailed change 2" --head current-branch-name --base main`
+8. Give me the link to the PR by running `gh pr view --web`
+
+Types for conventional commits:
+
+- feat: New feature
+- fix: Bug fix
+- docs: Documentation changes
+- style: Formatting changes
+- refactor: Code restructuring
+- test: Adding/modifying tests
+- chore: Maintenance tasks
