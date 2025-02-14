@@ -60,6 +60,14 @@ A modern, high-performance Django template using django-ninja for building REST 
 
 ## Development Setup
 
+### Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` file with your specific configuration values.
+
 ### Install dependencies
 
 ```bash
