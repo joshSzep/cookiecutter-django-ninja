@@ -33,15 +33,15 @@ pre-commit:
 
 # Create and run migrations
 migrate:
-    uv run python src/backend/manage.py migrate
+    uv run python manage.py migrate
 
 # Make migrations
 makemigrations:
-    uv run python src/backend/manage.py makemigrations
+    uv run python manage.py makemigrations
 
 # Create a superuser
 createsuperuser:
-    uv run python src/backend/manage.py createsuperuser
+    uv run python manage.py createsuperuser
 
 # Clean python cache files
 clean:
