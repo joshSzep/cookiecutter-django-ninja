@@ -22,11 +22,13 @@ typecheck:
 fmt:
     uv run ruff format .
 
+# Lint code
 lint:
     uv run ruff check --fix .
 
-# Run all checks (format, lint, type, tests)
-check: fmt lint typecheck test
+# Run the pre-commit checks
+pre-commit:
+    uv run pre-commit run --all
 
 # Create and run migrations
 migrate:
