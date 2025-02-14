@@ -8,7 +8,7 @@ install:
 
 # Run the development server
 serve:
-    uv run python src/backend/manage.py runserver
+    uv run gunicorn -c gunicorn.conf.py src.backend.project.asgi:application
 
 # Run tests with coverage
 test:
