@@ -4,5 +4,5 @@ api = NinjaAPI()
 
 
 @api.get("/health")
-def health(request):
+async def health(request):
     return {"status": "ok"}
