@@ -86,10 +86,16 @@ just pre-commit
 just migrate
 ```
 
-### Start development server
+### Start development server (manage.py runserver + daphne)
 
 ```bash
-just serve
+just serve-dev
+```
+
+### Start production server (gunicorn + uvicorn)
+
+```bash
+just serve-prod
 ```
 
 ## Development Commands
@@ -97,7 +103,8 @@ just serve
 The project uses `just` for common development tasks:
 
 - `just install` - Install all dependencies
-- `just serve` - Start development server
+- `just serve-dev` - Start development server
+- `just serve-prod` - Start production server
 - `just test` - Run tests
 - `just lint` - Run linting
 - `just format` - Format code
