@@ -6,9 +6,13 @@ default:
 install:
     uv sync
 
-# Run the development server
-serve:
+# Run the production server
+serve-prod:
     uv run gunicorn -c gunicorn.conf.py src.backend.project.asgi:application
+
+# Run the development server
+serve-dev:
+    uv run python manage.py runserver
 
 # Run tests with coverage
 test:
